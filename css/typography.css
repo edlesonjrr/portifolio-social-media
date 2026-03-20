@@ -1,0 +1,52 @@
+/* ══════════════════════════════════════════
+   TYPOGRAPHY
+══════════════════════════════════════════ */
+
+.lbl {
+  display: block;
+  font-size: .62rem;
+  font-weight: 600;
+  letter-spacing: .42em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 1rem;
+}
+
+.h1 {
+  font-family: var(--serif);
+  font-weight: 700;
+  line-height: 1.0;
+  letter-spacing: -.028em;
+  color: var(--ink);
+  font-size: clamp(2.6rem, 5.5vw, 5.2rem);
+}
+
+.h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--rose);
+}
+
+.h1--light        { color: #fff; }
+.h1--light em     { color: var(--rose-pale); }
+
+.body {
+  font-size: .94rem;
+  line-height: 1.92;
+  color: var(--ink-50);
+  font-weight: 300;
+}
+
+.body--light { color: rgba(255,255,255,.72); }
+
+/* ── Scroll reveal ── */
+[data-r] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .84s var(--ease), transform .84s var(--ease);
+}
+
+[data-r].in {
+  opacity: 1;
+  transform: none;
+}

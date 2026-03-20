@@ -1,0 +1,136 @@
+/* ══════════════════════════════════════════
+   SERVICES
+══════════════════════════════════════════ */
+
+.services {
+  padding: 8rem 5vw;
+  background: var(--white);
+}
+
+.services-hd {
+  max-width: 720px;
+  margin-bottom: 4.5rem;
+}
+
+.svc-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.3rem;
+}
+
+.svc-card {
+  background: var(--off);
+  border: 1px solid rgba(232,86,122,.12);
+  border-radius: 14px;
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color .32s ease, transform .32s var(--ease), box-shadow .32s ease;
+  cursor: default;
+}
+
+/* Gradiente decorativo no card */
+.svc-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2.5px;
+  background: linear-gradient(90deg, transparent, var(--rose), var(--coral), transparent);
+  opacity: 0;
+  transition: opacity .32s ease;
+}
+
+/* Blob decorativo */
+.svc-card::after {
+  content: '';
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,86,122,.06) 0%, transparent 70%);
+  transition: transform .5s ease, opacity .5s ease;
+}
+
+.svc-card:hover {
+  border-color: rgba(232,86,122,.3);
+  transform: translateY(-7px);
+  box-shadow: 0 22px 56px rgba(232,86,122,.12), 0 4px 14px rgba(26,15,14,.04);
+}
+
+.svc-card:hover::before { opacity: 1; }
+
+.svc-card:hover::after {
+  transform: scale(2);
+  opacity: .5;
+}
+
+.svc-num {
+  font-family: var(--serif);
+  font-size: .68rem;
+  color: var(--rose-light);
+  letter-spacing: .12em;
+  font-style: italic;
+  margin-bottom: 1.6rem;
+  font-weight: 700;
+}
+
+/* Ícone com círculo rosa suave */
+.svc-icon {
+  width: 52px; height: 52px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--rose-pale), rgba(255,122,92,.12));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.6rem;
+  color: var(--rose);
+  transition: background .32s ease, transform .32s var(--ease), box-shadow .32s ease;
+}
+
+.svc-card:hover .svc-icon {
+  background: linear-gradient(135deg, var(--rose), var(--coral));
+  color: #fff;
+  transform: scale(1.08) rotate(-3deg);
+  box-shadow: 0 8px 24px rgba(232,86,122,.35);
+}
+
+.svc-title {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: .9rem;
+  line-height: 1.2;
+}
+
+.svc-desc {
+  font-size: .88rem;
+  line-height: 1.85;
+  color: var(--ink-50);
+  font-weight: 300;
+}
+
+.svc-arrow {
+  position: absolute;
+  bottom: 3rem; right: 3rem;
+  color: var(--ink-30);
+  opacity: 0;
+  transform: translate(-6px, 6px);
+  transition: opacity .32s ease, transform .32s var(--ease), color .32s ease;
+}
+
+.svc-card:hover .svc-arrow {
+  opacity: 1;
+  transform: none;
+  color: var(--rose);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .svc-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .svc-card { padding: 2.2rem 2rem; }
+  .svc-arrow { display: none; }
+}

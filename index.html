@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Yasmin Labanca — Videomaker & Social Media. Transformando momentos em histórias visuais." />
+    <meta property="og:title" content="Yasmin Labanca · Videomaker" />
+    <meta property="og:description" content="Transformando momentos em histórias visuais autênticas." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/og-image.jpg" />
+    <meta name="theme-color" content="#E8567A" />
+    <title>Yasmin Labanca · Videomaker</title>
+
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23E8567A'/><text y='.9em' font-size='75' font-family='Georgia,serif' font-style='italic' font-weight='700' fill='white' x='15'>Y</text></svg>" />
+    <!-- Preconnects para fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- FIX: font não bloqueia render (media=print swap para all) -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap"
+            rel="stylesheet" />
+    </noscript>
+
+    <!-- FIX: preload do LCP (imagem hero) -->
+    <link rel="preload" as="image" href="assets/YasminHero.png" fetchpriority="high" />
+
+    <!-- CSS Modular -->
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/cursor.css" />
+    <link rel="stylesheet" href="css/typography.css" />
+    <link rel="stylesheet" href="css/buttons.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/hero.css" />
+    <link rel="stylesheet" href="css/about.css" />
+    <link rel="stylesheet" href="css/portfolio.css" />
+    <link rel="stylesheet" href="css/services.css" />
+    <link rel="stylesheet" href="css/process.css" />
+    <link rel="stylesheet" href="css/testimonials.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/whatsapp.css" />
+
+    <!-- FIX: utilitário sr-only para acessibilidade -->
+    <style>
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="cur" aria-hidden="true"></div>
+    <div id="curDot" aria-hidden="true"></div>
+    <div id="prog" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+        aria-label="Progresso de leitura"></div>
+
+    <!-- ══ WHATSAPP FLUTUANTE ══ -->
+    <a class="wa-float" href="https://wa.me/5586995797919" target="_blank" rel="noopener noreferrer"
+        aria-label="Falar com Yasmin no WhatsApp">
+        <span class="wa-label">Falar no WhatsApp</span>
+        <div class="wa-btn" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" focusable="false">
+                <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a6.085 6.085 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg>
+        </div>
+    </a>
+
+    <!-- ══ NAVBAR ══ -->
+    <nav class="nav" id="nav" role="navigation" aria-label="Navegação principal">
+        <a class="nav-logo" href="#hero" aria-label="YL Films — Página inicial">YL · Films</a>
+        <ul class="nav-links" role="list">
+            <li><a href="#about">Sobre</a></li>
+            <li><a href="#work">Trabalhos</a></li>
+            <li><a href="#services">Serviços</a></li>
+            <li><a href="#process">Processo</a></li>
+            <li><a href="#contact" class="nav-cta">Contato</a></li>
+        </ul>
+        <button class="burger" id="burger" aria-label="Abrir menu de navegação" aria-expanded="false"
+            aria-controls="mob">
+            <span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="mob" id="mob" role="dialog" aria-label="Menu de navegação" aria-hidden="true">
+        <div class="mob-links">
+            <a href="#about" data-i="01">Sobre</a>
+            <a href="#work" data-i="02">Trabalhos</a>
+            <a href="#services" data-i="03">Serviços</a>
+            <a href="#process" data-i="04">Processo</a>
+            <a href="#contact" data-i="05">Contato</a>
+        </div>
+        <div class="mob-footer" aria-hidden="true">@yasminlabanca.films</div>
+    </div>
+
+    <!-- ══ HERO ══ -->
+    <section class="hero" id="hero" aria-label="Apresentação">
+
+        <div class="hero-blob hero-blob-1" aria-hidden="true"></div>
+        <div class="hero-blob hero-blob-2" aria-hidden="true"></div>
+        <div class="hero-blob hero-blob-3" aria-hidden="true"></div>
+
+        <div class="hero-content">
+            <span class="hero-label">Videomaker · Social Media · Filmmaker</span>
+
+            <h1 class="hero-title">
+                <span>Transformando</span>
+                <span>momentos</span>
+                <span>em histórias.</span>
+            </h1>
+
+            <p class="hero-sub">
+                Filmes que capturam emoção, presença e memória.<br>
+                Do planejamento ao frame final.
+            </p>
+
+            <div class="hero-btns">
+                <a href="#work" class="btn btn-primary">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+                        focusable="false">
+                        <polygon points="5,3 19,12 5,21" />
+                    </svg>
+                    Ver trabalhos
+                </a>
+                <a href="#contact" class="btn btn-glass">Entrar em contato</a>
+            </div>
+        </div>
+
+        <div class="hero-img-col">
+            <div class="hero-img-wrap">
+                <div class="hero-img-ring hero-img-ring-1" aria-hidden="true"></div>
+                <div class="hero-img-ring hero-img-ring-2" aria-hidden="true"></div>
+
+                <!-- FIX: fetchpriority + width/height para CLS zero -->
+                <img class="hero-photo" src="assets/YasminHero.png"
+                    alt="Yasmin Labanca, videomaker e social media profissional" fetchpriority="high" decoding="async"
+                    width="480" height="720" draggable="false" />
+
+                <div class="hero-tag" aria-hidden="true">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                        <path d="M15 10l4.553-2.277A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14" />
+                        <rect x="2" y="6" width="13" height="12" rx="2" />
+                    </svg>
+                    Videomaker Profissional
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-scroll" aria-hidden="true">
+            <div class="hero-scroll-line"></div>
+            <span>scroll</span>
+        </div>
+    </section>
+
+    <div class="wave" style="background:var(--white)" aria-hidden="true">
+        <svg viewBox="0 0 1440 90" preserveAspectRatio="none" height="90" focusable="false">
+            <path fill="#FEF4F6" d="M0,45 C360,90 1080,0 1440,45 L1440,90 L0,90 Z" />
+        </svg>
+    </div>
+
+    <!-- ══ SOBRE ══ -->
+    <section class="about" id="about" aria-label="Sobre Yasmin">
+        <div class="about-img-col">
+            <div class="about-img-wrap" data-parallax>
+                <img src="assets/yasmin-about.png" alt="Yasmin Labanca com câmera, videomaker profissional"
+                    loading="lazy" decoding="async" width="600" height="800" />
+                <div class="about-img-ov" aria-hidden="true"></div>
+            </div>
+            <div class="about-badge" aria-label="Mais de 3 anos de experiência">
+                <span class="about-badge-n" aria-hidden="true">+3</span>
+                <span class="about-badge-t">anos de<br>experiência</span>
+            </div>
+        </div>
+
+        <div class="about-text">
+            <p class="lbl" data-r>Sobre mim</p>
+            <h2 class="h1" data-r data-d=".1">
+                Cada frame<br>carrega <em>intenção.</em>
+            </h2>
+            <p class="body" data-r data-d=".18" style="margin-top:1.5rem">
+                Sou Yasmin Labanca, videomaker focada em transformar momentos e marcas em histórias
+                visuais autênticas. Acredito no poder do vídeo para comunicar com sensibilidade, estética e intenção.
+            </p>
+            <p class="body" data-r data-d=".24">
+                Meu trabalho é guiado pelos detalhes, pelo ritmo e pela verdade de cada história que conto.
+                Do planejamento ao corte final, cada projeto é tratado como uma obra única.
+            </p>
+            <div class="about-stats" data-r data-d=".3">
+                <div>
+                    <span class="stat-n" data-count="+50" aria-label="Mais de 50 projetos">50+</span>
+                    <span class="stat-l">Projetos</span>
+                </div>
+                <div class="stat-div" aria-hidden="true"></div>
+                <div>
+                    <span class="stat-n" data-count="100%" aria-label="100% de dedicação">100%</span>
+                    <span class="stat-l">Dedicação</span>
+                </div>
+                <div class="stat-div" aria-hidden="true"></div>
+                <div>
+                    <span class="stat-n" aria-label="Infinitas histórias">∞</span>
+                    <span class="stat-l">Histórias</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="wave" style="background:var(--rose-ultra)" aria-hidden="true">
+        <svg viewBox="0 0 1440 90" preserveAspectRatio="none" height="90" focusable="false">
+            <path fill="#ffffff" d="M0,20 C480,75 960,5 1440,55 L1440,0 L0,0 Z" />
+        </svg>
+    </div>
+
+    <!-- ══ TRABALHOS ══ -->
+    <section class="work" id="work" aria-label="Portfólio de trabalhos">
+        <div class="work-hd">
+            <p class="lbl" data-r>Portfólio</p>
+            <h2 class="h1" data-r data-d=".1">Trabalhos <em>selecionados.</em></h2>
+        </div>
+
+        <div class="work-grid">
+            <a class="work-item tall"
+                href="https://www.instagram.com/reel/DNosBXHtveN/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                target="_blank" rel="noopener noreferrer" aria-label="Ver aniversário da Maria  Pietra no Instagram">
+                <div class="work-thumb">
+                    <img src="assets/work-1.png" alt="Aniversário de Maria Pietra" loading="lazy" decoding="async"
+                        width="600" height="800" />
+                    <div class="work-ov" aria-hidden="true">
+                        <div class="play-btn"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+                                width="18" height="18" focusable="false">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"
+                                    fill="white" stroke="none" />
+                            </svg></div>
+                        <div class="work-info">
+                            <p class="work-cat">Eventos</p>
+                            <p class="work-ttl">Aniversário Maria Pietra</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a class="work-item"
+                href="https://www.instagram.com/reel/DVq6nOZDmW0/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                target="_blank" rel="noopener noreferrer" aria-label="Ver formatura Laís Miranda">
+                <div class="work-thumb">
+                    <img src="assets/work-2.png" alt="Formatura Laís Miranda" loading="lazy" decoding="async"
+                        width="600" height="450" />
+                    <div class="work-ov" aria-hidden="true">
+                        <div class="play-btn"><svg viewBox="0 0 24 24" fill="white" width="18" height="18"
+                                focusable="false">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                            </svg></div>
+                        <div class="work-info">
+                            <p class="work-cat">Formatura</p>
+                            <p class="work-ttl">Formatura de Laís Miranda</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a class="work-item"
+                href="https://www.instagram.com/reel/DMqAHuAsv4J/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                target="_blank" rel="noopener noreferrer" aria-label="Ver Luma 15 anos">
+                <div class="work-thumb">
+                    <img src="assets/work-3.png" alt="Luma 15 anos" loading="lazy" decoding="async" width="600"
+                        height="450" />
+                    <div class="work-ov" aria-hidden="true">
+                        <div class="play-btn"><svg viewBox="0 0 24 24" fill="white" width="18" height="18"
+                                focusable="false">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                            </svg></div>
+                        <div class="work-info">
+                            <p class="work-cat">Eventos</p>
+                            <p class="work-ttl">Luma 15 anos</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a class="work-item wide"
+                href="https://www.instagram.com/reel/DTQis1UEZEQ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                target="_blank" rel="noopener noreferrer" aria-label="Ver Casamento Bárbara e Leno no Instagram">
+                <div class="work-thumb">
+                    <img src="assets/work-4.png" alt="Casamento de Bárbara e Leno — filmagem cerimonial" loading="lazy"
+                        decoding="async" width="1200" height="525" />
+                    <div class="work-ov" aria-hidden="true">
+                        <div class="play-btn"><svg viewBox="0 0 24 24" fill="white" width="18" height="18"
+                                focusable="false">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                            </svg></div>
+                        <div class="work-info">
+                            <p class="work-cat">Cerimonial</p>
+                            <p class="work-ttl">Casamento · Bárbara &amp; Leno</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a class="work-item"
+                href="https://www.instagram.com/reel/DGzEmTRMS-q/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                target="_blank" rel="noopener noreferrer" aria-label="Ver casamento">
+                <div class="work-thumb">
+                    <img src="assets/work-5.png" alt="Casamento" loading="lazy" decoding="async" width="600"
+                        height="450" />
+                    <div class="work-ov" aria-hidden="true">
+                        <div class="play-btn"><svg viewBox="0 0 24 24" fill="white" width="18" height="18"
+                                focusable="false">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                            </svg></div>
+                        <div class="work-info">
+                            <p class="work-cat">Cerimonial</p>
+                            <p class="work-ttl">Casamento</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a class="work-item"
+                href="https://www.instagram.com/reel/DNEHkjqpZtY/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                target="_blank" rel="noopener noreferrer" aria-label="Ver Aniversário Maele">
+                <div class="work-thumb">
+                    <img src="assets/work-6.png" alt="Aniversário Maele" loading="lazy" decoding="async" width="600"
+                        height="450" />
+                    <div class="work-ov" aria-hidden="true">
+                        <div class="play-btn"><svg viewBox="0 0 24 24" fill="white" width="18" height="18"
+                                focusable="false">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                            </svg></div>
+                        <div class="work-info">
+                            <p class="work-cat">Eventos</p>
+                            <p class="work-ttl">Aniversário Maele</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="work-more" data-r>
+            <a href="https://instagram.com/yasminlabanca.films" target="_blank" rel="noopener noreferrer"
+                class="btn btn-outline" aria-label="Ver mais trabalhos no Instagram">
+                Ver mais no Instagram
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                    aria-hidden="true" focusable="false">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+            </a>
+        </div>
+    </section>
+
+
+
+
+    <div class="wave" style="background:var(--white)" aria-hidden="true">
+        <svg viewBox="0 0 1440 90" preserveAspectRatio="none" height="90" focusable="false">
+            <path fill="#FEF4F6" d="M0,55 C360,10 1080,80 1440,22 L1440,90 L0,90 Z" />
+        </svg>
+    </div>
+
+    <!-- ══ SERVIÇOS ══ -->
+    <section class="services" id="services" aria-label="Serviços">
+        <div class="services-hd">
+            <p class="lbl" data-r>Serviços</p>
+            <h2 class="h1" data-r data-d=".1">O que posso<br><em>fazer por você.</em></h2>
+        </div>
+        <div class="svc-grid">
+            <article class="svc-card">
+                <div class="svc-num" aria-hidden="true">01</div>
+                <div class="svc-icon" aria-hidden="true">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                        stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                        <path
+                            d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+                    </svg>
+                </div>
+                <h3 class="svc-title">Casamentos &amp; Eventos</h3>
+                <p class="svc-desc">Capturo cada detalhe, emoção e memória do seu momento mais especial com
+                    sensibilidade e técnica cinematográfica.</p>
+                <div class="svc-arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" focusable="false">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg></div>
+            </article>
+
+            <article class="svc-card">
+                <div class="svc-num" aria-hidden="true">02</div>
+                <div class="svc-icon" aria-hidden="true">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                        stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                        <polygon
+                            points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+                    </svg>
+                </div>
+                <h3 class="svc-title">Conteúdo para Marcas</h3>
+                <p class="svc-desc">Vídeos que comunicam a identidade da sua marca com autenticidade, gerando conexão
+                    real com o seu público.</p>
+                <div class="svc-arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" focusable="false">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg></div>
+            </article>
+
+            <article class="svc-card">
+                <div class="svc-num" aria-hidden="true">03</div>
+                <div class="svc-icon" aria-hidden="true">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                        stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                        <rect x="2" y="2" width="20" height="20" rx="5" />
+                        <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </div>
+                <h3 class="svc-title">Conteúdo Digital</h3>
+                <p class="svc-desc">Reels, stories e vídeos curtos pensados estrategicamente para maximizar o
+                    engajamento nas redes sociais.</p>
+                <div class="svc-arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" focusable="false">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg></div>
+            </article>
+
+            <article class="svc-card">
+                <div class="svc-num" aria-hidden="true">04</div>
+                <div class="svc-icon" aria-hidden="true">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                        stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                        <path d="M15 10l4.553-2.277A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14" />
+                        <rect x="2" y="6" width="13" height="12" rx="2" />
+                    </svg>
+                </div>
+                <h3 class="svc-title">Captação &amp; Edição</h3>
+                <p class="svc-desc">Serviço completo do planejamento à entrega final. Captação profissional e edição
+                    cinematográfica em um único pacote.</p>
+                <div class="svc-arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" focusable="false">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg></div>
+            </article>
+        </div>
+    </section>
+
+    <div class="wave" style="background:var(--rose-ultra)" aria-hidden="true">
+        <svg viewBox="0 0 1440 90" preserveAspectRatio="none" height="90" focusable="false">
+            <path fill="#ffffff" d="M0,30 C480,85 960,0 1440,60 L1440,0 L0,0 Z" />
+        </svg>
+    </div>
+
+    <!-- ══ PROCESSO ══ — FIX: div → ol para semântica correta de lista ordenada -->
+    <section class="process" id="process" aria-label="Processo de trabalho">
+        <div class="process-hd">
+            <p class="lbl" data-r>Como funciona</p>
+            <h2 class="h1" data-r data-d=".1">O processo<br><em>criativo.</em></h2>
+        </div>
+        <ol class="steps" aria-label="Etapas do processo criativo">
+            <li class="step" data-r data-d="0">
+                <div class="step-n" aria-hidden="true">01</div>
+                <div class="step-line" aria-hidden="true"></div>
+                <div class="step-content">
+                    <h3>Contato</h3>
+                    <p>Conversamos sobre o seu projeto, objetivos e visão. Entendo o que você precisa e o que quer
+                        transmitir.</p>
+                </div>
+            </li>
+            <li class="step" data-r data-d=".1">
+                <div class="step-n" aria-hidden="true">02</div>
+                <div class="step-line" aria-hidden="true"></div>
+                <div class="step-content">
+                    <h3>Planejamento</h3>
+                    <p>Desenvolvemos juntos o roteiro, locações, referências visuais e todo o planejamento da produção.
+                    </p>
+                </div>
+            </li>
+            <li class="step" data-r data-d=".2">
+                <div class="step-n" aria-hidden="true">03</div>
+                <div class="step-line" aria-hidden="true"></div>
+                <div class="step-content">
+                    <h3>Captação</h3>
+                    <p>O dia da filmagem com toda a atenção ao detalhe, luz, composição e emoção de cada momento.</p>
+                </div>
+            </li>
+            <li class="step" data-r data-d=".3">
+                <div class="step-n" aria-hidden="true">04</div>
+                <div class="step-line" aria-hidden="true"></div>
+                <div class="step-content">
+                    <h3>Edição</h3>
+                    <p>Montagem, color grade cinematográfico, trilha sonora e todos os ajustes para uma entrega
+                        perfeita.</p>
+                </div>
+            </li>
+            <li class="step" data-r data-d=".4">
+                <div class="step-n" aria-hidden="true">05</div>
+                <div class="step-line last" aria-hidden="true"></div>
+                <div class="step-content">
+                    <h3>Entrega</h3>
+                    <p>Arquivos em alta qualidade prontos para uso. Uma história que vai permanecer para sempre.</p>
+                </div>
+            </li>
+        </ol>
+    </section>
+
+    <div class="wave" style="background:var(--white)" aria-hidden="true">
+        <svg viewBox="0 0 1440 90" preserveAspectRatio="none" height="90" focusable="false">
+            <path fill="#FEF4F6" d="M0,60 C360,8 1080,82 1440,28 L1440,90 L0,90 Z" />
+        </svg>
+    </div>
+
+    <!-- ══ DEPOIMENTOS ══ -->
+    <section class="testimonials" id="testimonials" aria-label="Depoimentos de clientes">
+        <div class="test-hd">
+            <p class="lbl" data-r>Depoimentos</p>
+            <h2 class="h1" data-r data-d=".1">O que dizem<br><em>sobre o trabalho.</em></h2>
+        </div>
+        <div class="marquee-wrap" aria-live="off">
+            <div class="marquee-track">
+                <article class="tcard">
+                    <div class="tcard-stars" aria-label="5 estrelas">★★★★★</div>
+                    <blockquote class="tcard-text">"Yasmin capturou exatamente o que queríamos. O vídeo do nosso
+                        casamento ficou simplesmente perfeito. Cada detalhe, cada emoção registrada com um cuidado
+                        incrível."</blockquote>
+                    <footer class="tcard-author">
+                        <div class="tcard-av" aria-hidden="true">A</div>
+                        <div>
+                            <p class="tcard-name">Ana &amp; Pedro</p>
+                            <p class="tcard-role">Casamento 2024</p>
+                        </div>
+                    </footer>
+                </article>
+                <article class="tcard">
+                    <div class="tcard-stars" aria-label="5 estrelas">★★★★★</div>
+                    <blockquote class="tcard-text">"Trabalhar com a Yasmin foi transformador para a nossa marca. O brand
+                        film elevou completamente a nossa presença digital. Profissionalismo e sensibilidade únicos."
+                    </blockquote>
+                    <footer class="tcard-author">
+                        <div class="tcard-av" aria-hidden="true">M</div>
+                        <div>
+                            <p class="tcard-name">Marina Costa</p>
+                            <p class="tcard-role">CEO · Marca Digital</p>
+                        </div>
+                    </footer>
+                </article>
+                <article class="tcard">
+                    <div class="tcard-stars" aria-label="5 estrelas">★★★★★</div>
+                    <blockquote class="tcard-text">"O XV anos da minha filha ficou registrado de uma forma tão especial.
+                        A Yasmin tem um olhar diferente, consegue capturar momentos que você nem percebe que
+                        aconteceram."</blockquote>
+                    <footer class="tcard-author">
+                        <div class="tcard-av" aria-hidden="true">C</div>
+                        <div>
+                            <p class="tcard-name">Cláudia Mendes</p>
+                            <p class="tcard-role">XV Anos · Maria</p>
+                        </div>
+                    </footer>
+                </article>
+                <article class="tcard">
+                    <div class="tcard-stars" aria-label="5 estrelas">★★★★★</div>
+                    <blockquote class="tcard-text">"Estou apaixonada pelo seu trabalho!! Sua sensibilidade e
+                        profissionalismo me encantaram. Muito obrigada por isso."
+                    </blockquote>
+                    <footer class="tcard-author">
+                        <div class="tcard-av" aria-hidden="true">R</div>
+                        <div>
+                            <p class="tcard-name">Ticiana Soares</p>
+                            <p class="tcard-role">Cliente Social Media</p>
+                        </div>
+                    </footer>
+                </article>
+            </div>
+            <div class="marquee-track" aria-hidden="true">
+                <article class="tcard">
+                    <div class="tcard-stars">★★★★★</div>
+                    <blockquote class="tcard-text">"Yasmin capturou exatamente o que queríamos. O vídeo do nosso
+                        casamento ficou simplesmente perfeito. Cada detalhe, cada emoção registrada com um cuidado
+                        incrível."</blockquote>
+                    <footer class="tcard-author">
+                        <div class="tcard-av">A</div>
+                        <div>
+                            <p class="tcard-name">Ana &amp; Pedro</p>
+                            <p class="tcard-role">Casamento 2024</p>
+                        </div>
+                    </footer>
+                </article>
+                <article class="tcard">
+                    <div class="tcard-stars">★★★★★</div>
+                    <blockquote class="tcard-text">"Graditão por toda atenção, momentos exclusivos e dedicação! Seu
+                        trabalho ficou show! "
+                    </blockquote>
+                    <footer class="tcard-author">
+                        <div class="tcard-av">M</div>
+                        <div>
+                            <p class="tcard-name">Maele Almeida</p>
+                            <p class="tcard-role">Cliente Social Media</p>
+                        </div>
+                    </footer>
+                </article>
+                <article class="tcard">
+                    <div class="tcard-stars">★★★★★</div>
+                    <blockquote class="tcard-text">"O XV anos da minha filha ficou registrado de uma forma tão especial.
+                        A Yasmin tem um olhar diferente, consegue capturar momentos que você nem percebe que
+                        aconteceram."</blockquote>
+                    <footer class="tcard-author">
+                        <div class="tcard-av">C</div>
+                        <div>
+                            <p class="tcard-name">Cláudia Mendes</p>
+                            <p class="tcard-role">XV Anos · Maria</p>
+                        </div>
+                    </footer>
+                </article>
+                <article class="tcard">
+                    <div class="tcard-stars">★★★★★</div>
+                    <blockquote class="tcard-text">"Você é uma excelente profissional. Parabéns, seu conteúdo é
+                        maravilhoso!"
+                    </blockquote>
+                    <footer class="tcard-author">
+                        <div class="tcard-av">R</div>
+                        <div>
+                            <p class="tcard-name">Rafael Lima</p>
+                            <p class="tcard-role">Cliente Social Media</p>
+                        </div>
+                    </footer>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <div class="wave" style="background:transparent" aria-hidden="true">
+        <svg viewBox="0 0 1440 90" preserveAspectRatio="none" height="90" focusable="false">
+            <path fill="#ffffff" d="M0,22 C480,72 960,8 1440,50 L1440,0 L0,0 Z" />
+        </svg>
+    </div>
+
+    <!-- ══ CTA ══ -->
+    <section class="cta" id="contact" aria-label="Entre em contato">
+        <div class="cta-bg" aria-hidden="true">
+            <div class="cta-ov"></div>
+        </div>
+        <div class="cta-content">
+            <p class="lbl" data-r>Vamos trabalhar juntos</p>
+            <h2 class="h1 h1--light" data-r data-d=".1">Vamos contar<br><em>a sua história?</em></h2>
+            <p class="body body--light" data-r data-d=".2">Cada projeto começa com uma conversa.<br>Fale comigo e vamos
+                criar algo extraordinário.</p>
+            <div class="cta-btns" data-r data-d=".3">
+                <a href="https://wa.me/5586995797919" target="_blank" rel="noopener noreferrer" class="btn btn-white"
+                    aria-label="Contato pelo WhatsApp">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+                        focusable="false">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a6.085 6.085 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                    WhatsApp
+                </a>
+                <a href="https://instagram.com/yasminlabanca.films" target="_blank" rel="noopener noreferrer"
+                    class="btn btn-ghost" aria-label="Ver Instagram">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+                        focusable="false">
+                        <path
+                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                    </svg>
+                    Instagram
+                </a>
+                <a href="mailto:contato@yasminlabanca.com" class="btn btn-ghost" aria-label="Enviar e-mail">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                        aria-hidden="true" focusable="false">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                    E-mail
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ FOOTER ══ -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-top">
+            <div>
+                <p class="footer-logo">YL · Films</p>
+                <p class="footer-tag">Registrando histórias que permanecem.</p>
+            </div>
+            <nav aria-label="Links do rodapé">
+                <div class="footer-links">
+                    <a href="#about">Sobre</a>
+                    <a href="#work">Trabalhos</a>
+                    <a href="#services">Serviços</a>
+                    <a href="#process">Processo</a>
+                    <a href="#contact">Contato</a>
+                </div>
+            </nav>
+            <div class="footer-social">
+                <a href="https://instagram.com/yasminlabanca.films" target="_blank" rel="noopener noreferrer"
+                    aria-label="Instagram">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+                        focusable="false">
+                        <path
+                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                    </svg>
+                </a>
+                <a href="https://wa.me/5586995797919" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+                        focusable="false">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a6.085 6.085 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="footer-btm" style="flex-direction:column;align-items:center;text-align:center;gap:.5rem;">
+            <p>© <span id="year">2025</span> Yasmin Labanca Films. Todos os direitos reservados.</p>
+            <p>
+                Desenvolvido por
+                <a href="https://portifolio-eddy.vercel.app" target="_blank" rel="noopener noreferrer"
+                    style="color:rgba(255,255,255,.45);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:1px;transition:color .3s ease,border-color .3s ease;"
+                    onmouseover="this.style.color='#F2849E';this.style.borderColor='#F2849E'"
+                    onmouseout="this.style.color='rgba(255,255,255,.45)';this.style.borderColor='rgba(255,255,255,.2)'">Eddy
+                    Code</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS — todos defer, badge.js removido (#hero-badge não existe mais) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="js/cursor.js" defer></script>
+    <script src="js/navbar.js" defer></script>
+    <script src="js/scroll.js" defer></script>
+    <script src="js/modal.js" defer></script>
+    <script src="js/process-visual.js" defer></script>
+    <script src="js/tilt.js" defer></script>
+    <script src="js/hero-mouse.js" defer></script>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+
+</html>

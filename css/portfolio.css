@@ -1,0 +1,252 @@
+/* ══════════════════════════════════════════
+   PORTFOLIO / WORK — Instagram links
+   Yasmin Labanca Films
+══════════════════════════════════════════ */
+
+.work {
+  padding: 8rem 5vw;
+  background: var(--rose-ultra);
+}
+
+.work-hd {
+  max-width: 800px;
+  margin-bottom: 4rem;
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.1rem;
+}
+
+/* work-item agora é <a> — reset visual de link */
+.work-item {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+  /* Foco acessível */
+  outline-offset: 3px;
+}
+
+.work-item:focus-visible {
+  outline: 2.5px solid var(--rose);
+}
+
+.work-item.tall {
+  grid-row: span 2;
+}
+
+.work-item.wide {
+  grid-column: span 2;
+}
+
+.work-thumb {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--rose-pale);
+  aspect-ratio: 4/3;
+  border-radius: 10px;
+}
+
+.work-item.tall .work-thumb {
+  aspect-ratio: unset;
+  height: 100%;
+  min-height: 490px;
+}
+
+.work-item.wide .work-thumb {
+  aspect-ratio: 16/7;
+}
+
+.work-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .72s var(--ease);
+  display: block;
+}
+
+.work-item:hover .work-thumb img,
+.work-item:focus-visible .work-thumb img {
+  transform: scale(1.06);
+}
+
+/* Overlay escurece ao hover */
+.work-ov {
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 15, 14, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: background .42s ease;
+  border-radius: 10px;
+}
+
+.work-item:hover .work-ov,
+.work-item:focus-visible .work-ov {
+  background: rgba(26, 15, 14, .5);
+}
+
+/* Touch devices: overlay sempre leve visível */
+@media (hover: none) {
+  .work-ov {
+    background: rgba(26, 15, 14, .18);
+  }
+}
+
+/* Botão de play — agora exibe ícone Instagram */
+.play-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, .9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(.6);
+  transition: opacity .38s ease, transform .38s var(--ease);
+  /* Gradiente Instagram */
+  background: linear-gradient(135deg,
+      #f09433 0%, #e6683c 25%,
+      #dc2743 50%, #cc2366 75%,
+      #bc1888 100%);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 16px rgba(220, 39, 67, .4);
+}
+
+.work-item:hover .play-btn,
+.work-item:focus-visible .play-btn {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Touch: sempre visível */
+@media (hover: none) {
+  .play-btn {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Info do card */
+.work-info {
+  position: absolute;
+  bottom: 1.4rem;
+  left: 1.6rem;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .38s ease, transform .38s var(--ease);
+}
+
+.work-item:hover .work-info,
+.work-item:focus-visible .work-info {
+  opacity: 1;
+  transform: none;
+}
+
+@media (hover: none) {
+  .work-info {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.work-cat {
+  font-size: .58rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--rose-pale);
+  margin-bottom: .2rem;
+}
+
+.work-ttl {
+  font-family: var(--serif);
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* Etiqueta "Ver no Instagram" no canto superior direito */
+.work-ig-tag {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, .18);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, .3);
+  border-radius: 100px;
+  padding: .3rem .7rem;
+  font-size: .56rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: .35rem;
+  opacity: 0;
+  transition: opacity .3s ease;
+  pointer-events: none;
+}
+
+.work-item:hover .work-ig-tag {
+  opacity: 1;
+}
+
+.work-more {
+  text-align: center;
+  margin-top: 3.8rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .work-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .work-item.tall {
+    grid-row: span 1;
+  }
+
+  .work-item.tall .work-thumb {
+    min-height: 0;
+    aspect-ratio: 4/3;
+    height: auto;
+  }
+
+  .work-item.wide {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .work-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .work-item.tall,
+  .work-item.wide {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .work-item.tall .work-thumb,
+  .work-item.wide .work-thumb {
+    aspect-ratio: 4/3;
+    height: auto;
+  }
+
+  /* Mobile: play-btn menor */
+  .play-btn {
+    width: 44px;
+    height: 44px;
+  }
+}

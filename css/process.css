@@ -1,0 +1,347 @@
+/* ══════════════════════════════════════════
+   PROCESS — 2 colunas desktop
+   Steps esquerda · Decorativo direita
+   Yasmin Labanca Films
+══════════════════════════════════════════ */
+
+.process {
+  padding: 8rem 5vw;
+  background: var(--rose-ultra);
+  position: relative;
+  overflow: hidden;
+}
+
+.process::before {
+  content: '';
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232, 86, 122, .07) 0%, transparent 70%);
+  top: -80px;
+  right: -80px;
+  pointer-events: none;
+}
+
+/* ── Layout 2 colunas ── */
+.process-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4vw;
+  align-items: stretch;
+  /* deco ocupa a mesma altura que a coluna de steps */
+}
+
+.process-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.process-hd {
+  margin-bottom: 4rem;
+}
+
+.steps {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 3.5rem 1px 1fr;
+  gap: 0 2.4rem;
+  min-height: 108px;
+}
+
+.step-n {
+  font-family: var(--serif);
+  font-size: .78rem;
+  color: var(--rose);
+  font-style: italic;
+  font-weight: 700;
+  padding-top: .2rem;
+}
+
+.step-line {
+  width: 1px;
+  background: rgba(232, 86, 122, .25);
+  position: relative;
+}
+
+.step-line::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--rose);
+  border: 2.5px solid var(--rose-ultra);
+  box-shadow: 0 0 0 1.5px var(--rose);
+  margin-left: -4.5px;
+}
+
+.step-line.last {
+  background: transparent;
+}
+
+.step-content {
+  padding: 0 0 3.4rem;
+}
+
+.step-content h3 {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: .55rem;
+}
+
+.step-content p {
+  font-size: .9rem;
+  line-height: 1.85;
+  color: var(--ink-50);
+  font-weight: 300;
+}
+
+/* ══════════════════════════════════════════
+   LADO DIREITO — Decorativo interativo
+══════════════════════════════════════════ */
+.process-deco {
+  position: relative;
+  /* Sem height fixo — ocupa a mesma altura que a coluna de steps */
+  height: 100%;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Anéis de fundo rotativos */
+.pd-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid rgba(232, 86, 122, .12);
+  pointer-events: none;
+  will-change: transform;
+}
+
+.pd-ring-1 {
+  width: 200px;
+  height: 200px;
+  border-style: dashed;
+  animation: pdRotate 32s linear infinite;
+}
+
+.pd-ring-2 {
+  width: 130px;
+  height: 130px;
+  border-color: rgba(255, 122, 92, .1);
+  animation: pdRotate 22s linear infinite reverse;
+}
+
+.pd-ring-3 {
+  width: 65px;
+  height: 65px;
+  border-color: rgba(201, 150, 58, .1);
+  animation: pdRotate 16s linear infinite;
+}
+
+@keyframes pdRotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Ponto central */
+.pd-center {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--rose), var(--coral));
+  box-shadow: 0 8px 32px rgba(232, 86, 122, .4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  z-index: 2;
+  animation: pdPulse 3s ease-in-out infinite;
+}
+
+@keyframes pdPulse {
+
+  0%,
+  100% {
+    box-shadow: 0 8px 32px rgba(232, 86, 122, .4);
+    transform: scale(1);
+  }
+
+  50% {
+    box-shadow: 0 12px 48px rgba(232, 86, 122, .6);
+    transform: scale(1.06);
+  }
+}
+
+/* Ícones flutuantes — posicionados em órbita */
+.pd-icon {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid rgba(232, 86, 122, .16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--rose);
+  box-shadow: 0 6px 24px rgba(232, 86, 122, .1), 0 2px 6px rgba(0, 0, 0, .04);
+  will-change: transform;
+  transition: box-shadow .3s ease, border-color .3s ease;
+  cursor: default;
+  z-index: 3;
+  /* Animação de float individual */
+  animation: pdFloat var(--dur, 4s) var(--delay, 0s) ease-in-out infinite;
+}
+
+.pd-icon:hover {
+  box-shadow: 0 12px 36px rgba(232, 86, 122, .28);
+  border-color: rgba(232, 86, 122, .4);
+}
+
+@keyframes pdFloat {
+
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  33% {
+    transform: translate(var(--tx, 4px), var(--ty, -8px)) rotate(var(--tr, 3deg));
+  }
+
+  66% {
+    transform: translate(calc(var(--tx, 4px) * -.6), var(--ty, -8px)) rotate(calc(var(--tr, 3deg) * -1));
+  }
+}
+
+/* Posições dos 6 ícones em órbita */
+/* Ícones em órbita compacta — alinhados entre Contato e Entrega */
+.pd-icon-1 {
+  top: 15%;
+  left: 50%;
+  margin-left: -30px;
+  --dur: 4.2s;
+  --delay: 0s;
+  --tx: 3px;
+  --ty: -6px;
+  --tr: 2deg;
+}
+
+.pd-icon-2 {
+  top: 28%;
+  right: 18%;
+  --dur: 3.8s;
+  --delay: .5s;
+  --tx: -4px;
+  --ty: -7px;
+  --tr: -3deg;
+}
+
+.pd-icon-3 {
+  bottom: 28%;
+  right: 18%;
+  --dur: 4.6s;
+  --delay: 1s;
+  --tx: -3px;
+  --ty: 6px;
+  --tr: 2deg;
+}
+
+.pd-icon-4 {
+  bottom: 15%;
+  left: 50%;
+  margin-left: -30px;
+  --dur: 4s;
+  --delay: .3s;
+  --tx: 4px;
+  --ty: 7px;
+  --tr: -2deg;
+}
+
+.pd-icon-5 {
+  bottom: 28%;
+  left: 18%;
+  --dur: 3.6s;
+  --delay: .8s;
+  --tx: 5px;
+  --ty: 6px;
+  --tr: 3deg;
+}
+
+.pd-icon-6 {
+  top: 28%;
+  left: 18%;
+  --dur: 4.4s;
+  --delay: .2s;
+  --tx: 4px;
+  --ty: -7px;
+  --tr: -2deg;
+}
+
+/* Linha conectora central → ícone (SVG injetado via JS) */
+.pd-lines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+  .process-deco {
+    min-height: 360px;
+  }
+
+  .pd-ring-1 {
+    width: 170px;
+    height: 170px;
+  }
+
+  .pd-ring-2 {
+    width: 110px;
+    height: 110px;
+  }
+
+  .pd-ring-3 {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+@media (max-width: 900px) {
+  .process-inner {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .process-deco {
+    display: none;
+  }
+
+  .steps {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .step {
+    grid-template-columns: 2.6rem 1px 1fr;
+    gap: 0 1.3rem;
+  }
+}

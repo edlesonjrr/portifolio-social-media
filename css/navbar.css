@@ -1,0 +1,181 @@
+/* ══════════════════════════════════════════
+   NAVBAR
+══════════════════════════════════════════ */
+
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 800;
+  padding: 1.6rem 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background .4s ease, padding .4s ease,
+              box-shadow .4s ease, backdrop-filter .4s ease;
+}
+
+.nav.s {
+  padding-top: .9rem;
+  padding-bottom: .9rem;
+  background: rgba(255, 250, 248, .88);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  box-shadow: 0 1px 0 rgba(232,86,122,.1), 0 4px 24px rgba(232,86,122,.07);
+}
+
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: var(--ink);
+  cursor: none;
+  background: linear-gradient(135deg, var(--ink), var(--rose));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+@media (hover: none) { .nav-logo { cursor: pointer; } }
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
+}
+
+.nav-links a {
+  font-size: .68rem;
+  font-weight: 500;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ink-50);
+  position: relative;
+  transition: color .3s ease;
+  cursor: none;
+}
+@media (hover: none) { .nav-links a { cursor: pointer; } }
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px; left: 0;
+  height: 1.5px; width: 0;
+  background: linear-gradient(90deg, var(--rose), var(--coral));
+  border-radius: 2px;
+  transition: width .3s var(--ease);
+}
+
+.nav-links a:hover { color: var(--ink); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-cta {
+  padding: .52rem 1.5rem !important;
+  border: 1.5px solid var(--rose) !important;
+  border-radius: 100px;
+  background: transparent !important;
+  color: var(--rose) !important;
+  transition: all .3s ease !important;
+}
+.nav-cta::after { display: none !important; }
+.nav-cta:hover {
+  background: var(--rose) !important;
+  color: #fff !important;
+}
+
+/* ── Burger ── */
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: none;
+  padding: 4px;
+  z-index: 801;
+}
+@media (hover: none) { .burger { cursor: pointer; } }
+
+.burger span {
+  display: block;
+  height: 1.5px;
+  background: var(--ink);
+  transition: all .32s var(--ease);
+  transform-origin: center;
+}
+.burger span:nth-child(1) { width: 26px; }
+.burger span:nth-child(2) { width: 18px; }
+
+.burger.o span:nth-child(1) {
+  width: 22px;
+  transform: translateY(3.75px) rotate(45deg);
+  background: var(--rose);
+}
+.burger.o span:nth-child(2) {
+  width: 22px;
+  transform: translateY(-3.75px) rotate(-45deg);
+  background: var(--rose);
+}
+
+/* ── Mobile nav ── */
+.mob {
+  position: fixed;
+  inset: 0;
+  z-index: 790;
+  background: rgba(255, 244, 246, .97);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 8vw;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .38s ease;
+}
+.mob.o { opacity: 1; pointer-events: all; }
+
+.mob-links {
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+}
+
+.mob-links a {
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 9vw, 4rem);
+  font-weight: 700;
+  color: rgba(26,15,14,.18);
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  opacity: 0;
+  transform: translateX(-20px);
+  cursor: pointer;
+  transition: opacity .4s ease, transform .4s var(--ease), color .3s ease;
+}
+
+.mob.o .mob-links a { opacity: 1; transform: none; }
+.mob.o .mob-links a:nth-child(1) { transition-delay: .08s; }
+.mob.o .mob-links a:nth-child(2) { transition-delay: .14s; }
+.mob.o .mob-links a:nth-child(3) { transition-delay: .20s; }
+.mob.o .mob-links a:nth-child(4) { transition-delay: .26s; }
+.mob.o .mob-links a:nth-child(5) { transition-delay: .32s; }
+
+.mob-links a::before {
+  content: attr(data-i);
+  font-family: var(--sans);
+  font-size: .6rem;
+  letter-spacing: .24em;
+  color: var(--rose);
+  font-weight: 600;
+}
+.mob-links a:hover { color: var(--rose); }
+
+.mob-footer {
+  position: absolute;
+  bottom: 2.5rem; left: 8vw;
+  font-size: .7rem;
+  letter-spacing: .22em;
+  color: var(--rose-light);
+}

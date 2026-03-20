@@ -1,0 +1,239 @@
+/* ══════════════════════════════════════════
+   TESTIMONIALS MARQUEE
+   FIX: conteúdo semântico (blockquote/footer/article),
+        pausa reduced-motion, tcard height consistente
+══════════════════════════════════════════ */
+
+.testimonials {
+  padding: 8rem 0;
+  overflow: hidden;
+  background: var(--white);
+}
+
+.test-hd {
+  padding: 0 5vw;
+  margin-bottom: 4rem;
+  max-width: 700px;
+}
+
+.marquee-wrap {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 7%, #000 93%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 7%, #000 93%, transparent 100%);
+}
+
+.marquee-track {
+  display: flex;
+  gap: 1.4rem;
+  flex-shrink: 0;
+  /* FIX: padding-right igual ao gap para o espaço ser consistente
+     na junção entre o track original e o clone do loop infinito */
+  padding: .5rem 1.4rem 1.5rem 0;
+  animation: marquee 38s linear infinite;
+  will-change: transform;
+}
+
+.marquee-wrap:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-100% - 1.4rem));
+  }
+}
+
+/* FIX: reduced-motion — para animação */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation-play-state: paused !important;
+  }
+}
+
+.tcard {
+  flex-shrink: 0;
+  width: 380px;
+  /* FIX: altura mínima para cards ficarem uniformes */
+  min-height: 220px;
+  background: var(--off);
+  border: 1px solid rgba(232, 86, 122, .15);
+  border-radius: 14px;
+  padding: 2.6rem;
+  transition: border-color .32s ease, box-shadow .32s ease, transform .32s var(--ease);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.tcard::before {
+  content: '"';
+  position: absolute;
+  top: -1rem;
+  right: 1.5rem;
+  font-family: var(--serif);
+  font-size: 8rem;
+  color: rgba(232, 86, 122, .07);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.tcard:hover {
+  border-color: rgba(232, 86, 122, .35);
+  transform: translateY(-5px);
+  box-shadow: 0 14px 44px rgba(232, 86, 122, .12), 0 2px 8px rgba(26, 15, 14, .04);
+}
+
+.tcard-stars {
+  color: var(--gold);
+  font-size: .85rem;
+  letter-spacing: .2em;
+  margin-bottom: 1.1rem;
+}
+
+/* FIX: blockquote semântico */
+.tcard-text {
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.76;
+  color: var(--ink-50);
+  margin-bottom: 1.8rem;
+  flex: 1;
+  /* empurra o autor para baixo */
+}
+
+/* FIX: footer semântico como autor do blockquote */
+.tcard-author {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  margin-top: auto;
+}
+
+.tcard-av {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--rose), var(--coral));
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: var(--serif);
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+.tcard-name {
+  font-size: .86rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: .2rem;
+}
+
+.tcard-role {
+  font-size: .7rem;
+  color: var(--ink-30);
+  letter-spacing: .08em;
+}
+
+/* ── CTA ── */
+.cta {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 9rem 5vw;
+  overflow: hidden;
+}
+
+.cta-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.cta-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.cta-ov {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(155deg,
+      rgba(232, 86, 122, .7) 0%,
+      rgba(26, 15, 14, .8) 55%,
+      rgba(26, 15, 14, .92) 100%);
+}
+
+.cta-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.cta-content .lbl {
+  color: var(--rose-pale);
+}
+
+.cta-content .h1 {
+  margin-bottom: 1.5rem;
+}
+
+.cta-content .body {
+  max-width: 460px;
+  margin: 1.2rem auto 3rem;
+}
+
+.cta-btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .9rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .marquee-track {
+    animation-duration: 26s;
+  }
+
+  .tcard {
+    width: 310px;
+  }
+}
+
+@media (max-width: 600px) {
+  .tcard {
+    width: 285px;
+    padding: 1.9rem;
+  }
+
+  .marquee-track {
+    animation-duration: 22s;
+  }
+
+  .cta-btns {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-btns .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}

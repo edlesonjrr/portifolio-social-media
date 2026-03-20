@@ -1,0 +1,152 @@
+/* ══════════════════════════════════════════
+   VARIABLES & RESET — Yasmin Labanca Films
+   FIX: touch-action, text-size-adjust Safari,
+        focus-visible, reduced-motion globals
+══════════════════════════════════════════ */
+
+:root {
+  --rose: #E8567A;
+  --rose-light: #F2849E;
+  --rose-pale: #FADADD;
+  --rose-ultra: #FEF4F6;
+  --coral: #FF7A5C;
+  --coral-light: #FFB3A2;
+  --gold: #C9963A;
+  --gold-light: #E6C97A;
+  --cream: #FFFAF8;
+  --white: #FFFFFF;
+  --off: #FDF8F6;
+  --ink: #1A0F0E;
+  --ink-70: #3D2422;
+  --ink-50: #7A5A58;
+  --ink-30: #BFA8A6;
+  --serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --sans: 'DM Sans', 'Jost', system-ui, sans-serif;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-s: cubic-bezier(0.4, 0, 0.2, 1);
+  /* FIX: nav height como variável reutilizável */
+  --nav-h: 70px;
+}
+
+/* ── Reset ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* FIX: evita zoom automático em inputs no iOS Safari */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* FIX: scroll-padding-top para links âncora com navbar fixa */
+  scroll-padding-top: var(--nav-h);
+}
+
+body {
+  font-family: var(--sans);
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
+  cursor: none;
+  /* FIX: min-height para evitar layout shift em telas pequenas */
+  min-height: 100svh;
+}
+
+@media (hover: none) {
+  body {
+    cursor: auto;
+  }
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  /* FIX: evita imagens quebradas exibirem ícone feio */
+  font-style: italic;
+  color: var(--ink-30);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: var(--sans);
+  border: none;
+  background: none;
+  /* FIX: cursor explícito em elementos interativos */
+  cursor: pointer;
+}
+
+/* FIX: focus-visible para acessibilidade de teclado sem poluir visual de mouse */
+:focus-visible {
+  outline: 2.5px solid var(--rose);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* FIX: tap targets mínimos de 44px no mobile (WCAG) */
+@media (hover: none) {
+
+  a,
+  button,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+/* Grain overlay sutil */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9988;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.018'/%3E%3C/svg%3E");
+  opacity: .3;
+  /* FIX: não renderiza em mobile (desnecessário + consome GPU) */
+}
+
+@media (hover: none) {
+  body::after {
+    display: none;
+  }
+}
+
+/* Wave */
+.wave {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  position: relative;
+  z-index: 2;
+  margin-bottom: -1px;
+}
+
+.wave svg {
+  display: block;
+  width: 100%;
+}
+
+/* FIX: marquee pausa com prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation-play-state: paused !important;
+  }
+}

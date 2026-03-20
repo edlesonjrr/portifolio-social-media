@@ -1,0 +1,131 @@
+/* ══════════════════════════════════════════
+   WHATSAPP FLOATING BUTTON
+══════════════════════════════════════════ */
+
+.wa-float {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 8000;
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* Botão principal */
+.wa-btn {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #25D366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 24px rgba(37, 211, 102, .45), 0 2px 8px rgba(0, 0, 0, .12);
+    transition: transform .32s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow .32s ease;
+    position: relative;
+    flex-shrink: 0;
+}
+
+/* Pulse ring */
+.wa-btn::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 2px solid rgba(37, 211, 102, .5);
+    animation: wa-pulse 2.4s ease-in-out infinite;
+}
+
+.wa-btn::after {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(37, 211, 102, .25);
+    animation: wa-pulse 2.4s .6s ease-in-out infinite;
+}
+
+@keyframes wa-pulse {
+    0% {
+        transform: scale(.9);
+        opacity: 1;
+    }
+
+    70% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+}
+
+.wa-btn:hover {
+    transform: scale(1.1) translateY(-3px);
+    box-shadow: 0 12px 36px rgba(37, 211, 102, .55), 0 4px 12px rgba(0, 0, 0, .12);
+}
+
+.wa-btn svg {
+    color: #fff;
+    flex-shrink: 0;
+}
+
+/* Tooltip label */
+.wa-label {
+    background: #fff;
+    color: #1A0F0E;
+    font-family: var(--sans);
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .04em;
+    padding: .5rem .9rem;
+    border-radius: 100px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, .12);
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: opacity .28s ease, transform .28s var(--ease);
+    pointer-events: none;
+}
+
+.wa-float:hover .wa-label {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Entrada animada */
+.wa-float {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: wa-enter .6s 2s var(--ease) forwards;
+}
+
+@keyframes wa-enter {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile: menor e sem label */
+@media (max-width: 600px) {
+    .wa-float {
+        bottom: 1.4rem;
+        right: 1.4rem;
+    }
+
+    .wa-btn {
+        width: 52px;
+        height: 52px;
+    }
+
+    .wa-label {
+        display: none;
+    }
+}
