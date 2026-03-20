@@ -4,7 +4,7 @@ Personal portfolio website for Yasmin Labanca, a videomaker and social media pro
 
 ## 🔗 Live
 
-[yasminlabanca.com](#) <!-- replace with the real URL -->
+[https://yasminlabanca.vercel.app](#) <!-- replace with the real URL -->
 
 ## ✨ Features
 
